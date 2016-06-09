@@ -1,14 +1,11 @@
 install: 
   - npm install
   - bower install
-script: gulp build
-  - echo $PATH
-  - print $PATH
-  - env
+script: 
   - export VERSION="$(gulp config --silent --getWidgetAttr=version)"
   - gulp build --buildVars="version:${VERSION},build:${BUILD_NUMBER}" --addMetaTags
   - gulp --cordova 'prepare ios --device' --no-build
   - gulp --cordova 'build ios --device'
-after_success:  
+after_success: 
   - echo sign app
   - echo upload to relution
