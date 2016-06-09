@@ -3,6 +3,8 @@ install:
   - bower install
 script: gulp build
   - echo $PATH
+  - print $PATH
+  - env
   - export VERSION="$(gulp config --silent --getWidgetAttr=version)"
   - gulp build --buildVars="version:${VERSION},build:${BUILD_NUMBER}" --addMetaTags
   - gulp --cordova 'prepare ios --device' --no-build
